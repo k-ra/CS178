@@ -15,14 +15,17 @@ class Todo(db.Model):
 
 @app.route("/")
 #CONCEPT 1: ROUTES
+# accessing parts of code only when "address"-ing them from diffeerent URL routes
 def home():
     todos = Todo.query.all()
     return render_template("home.html", todos=todos)
     #CONCEPT 2: REDIRECTING to a static HTML template page, and passing info
+    # ability to couple static HTML templates with dynamic data from a changing database
 
 @app.route("/add", methods=["POST"])
 def add():
     #CONCEPT 3: REQUESTING info from a form "post" action from HTML
+    # updating the database with data collected from the webpages themselves!
     title = request.form.get("title")
     new_todo = Todo(title=title, complete=False)
     db.session.add(new_todo)
