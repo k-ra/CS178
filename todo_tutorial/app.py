@@ -13,7 +13,6 @@ class Todo(db.Model):
     title = db.Column(db.String(100))
     complete = db.Column(db.Boolean)
 
-
 @app.route("/")
 #CONCEPT 1: ROUTES
 def home():
